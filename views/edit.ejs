@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+<body>
+    <div class="container">
+        <h1>Consulta</h1>
+        <form method="post" action="/edit">
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" name="name" id="name" placeholder="Nome do Paciente" class="form-control" value="<%= appointment.name %>" readonly />
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" placeholder="E-mail do Paciente" class="form-control" value="<%= appointment.email %>" readonly />
+            </div>
+            <div class="form-group">
+                <label for="cpf">CPF</label>
+                <input type="text" name="cpf" id="cpf" placeholder="CPF do Paciente" class="form-control" value="<%= appointment.cpf %>" readonly />
+            </div>
+            <div class="form-group">
+                <label for="description">Descrição</label>
+                <input type="text" name="description" id="description" placeholder="Descrição" class="form-control" value="<%= appointment.description %>" readonly />
+            </div>
+            <input type="hidden" name="id" value="<%= appointment._id %>">
+            <% if(!appointment.finished) { %>
+            <button type="submit" class="btn btn-primary">Finalizar consulta</button>
+            <% } %>
+        </form>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+<script src="/jquery/jquery.mask.min.js"></script>
+<script>
+    $(document).ready(function (e) {
+        $('#cpf').mask('000.000.000-00')
+    });
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Consultas</h1>
+        <form action="/list" method="get">
+            <div class="input-group mb-3">
+                <input type="search" name="search" class="form-control" value="<% if(search) { %><%= search %><% } %>" placeholder="Pesquisar por E-mail ou CPF">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-secondary" type="button" id="button-addon2">Pesquisar</button>
+                </div>
+            </div>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>CPF</th>
+                    <th>Descrição</th>
+                    <th>Finalizado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% appointments.forEach(appointment=> { %>
+                    <tr>
+                        <td>
+                            <%= appointment.name %>
+                        </td>
+                        <td>
+                            <%= appointment.email %>
+                        </td>
+                        <td>
+                            <%= appointment.cpf %>
+                        </td>
+                        <td>
+                            <%= appointment.description %>
+                        </td>
+                        <td>
+                            <%= appointment.finished %>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+</html>
