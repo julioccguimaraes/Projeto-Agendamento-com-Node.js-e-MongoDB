@@ -12,7 +12,8 @@ app.use(bodyParser.json())
 
 app.set("view engine", "ejs")
 
-mongoose.connect("mongodb://localhost:27017/agendamento")
+//mongoose.connect("mongodb://localhost:27017/agendamento")
+mongoose.connect("mongodb://mongodb:27017/agendamento")
 
 app.get("/", (req, res) => {
     res.render("index")
